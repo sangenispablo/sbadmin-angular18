@@ -1,6 +1,8 @@
 <main>
-
-  <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+  <!-- Header page content-->
+  <header
+    class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10"
+  >
     <div class="container-xl px-4">
       <div class="page-header-content pt-4">
         <div class="row align-items-center justify-content-between">
@@ -9,7 +11,9 @@
               <div class="page-header-icon"><i data-feather="sliders"></i></div>
               Progress
             </h1>
-            <div class="page-header-subtitle">Progress indicators to display data within your application</div>
+            <div class="page-header-subtitle">
+              Progress indicators to display data within your application
+            </div>
           </div>
         </div>
       </div>
@@ -25,14 +29,27 @@
           <div class="card mb-4">
             <div class="card-header">Striped Progress Indicators</div>
             <div class="card-body">
-              <h6 class="small text-muted fw-500">Animated Striped Indicators:</h6>
+              <h6 class="small text-muted fw-500">
+                Animated Striped Indicators:
+              </h6>
               <!-- Component Preview-->
               <div class="sbp-preview">
                 <div class="sbp-preview-content">
                   <div class="progress mb-3">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
-                      style="height: 20px;" [style.width]="getPorcentaje">
-                    </div>
+                    <div
+                      class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                      role="progressbar"
+                      style="height: 20px"
+                      [style.width]="getProgreso1"
+                    ></div>
+                  </div>
+                  <div class="progress mb-3">
+                    <div
+                      class="progress-bar progress-bar-striped progress-bar-animated bg-secondary"
+                      role="progressbar"
+                      style="height: 20px"
+                      [style.width]="getProgreso2"
+                    ></div>
                   </div>
                 </div>
                 <div class="sbp-preview-text">
@@ -40,31 +57,22 @@
                     <div class="col-6">
                       <div class="card">
                         <div class="card-body">
-                          <div class="input-group">
-                            <span class="input-group-btn">
-                              <button class="btn btn-primary" type="button" (click)="cambiarValor(-10)">
-                                <i data-feather="minus"></i>
-                              </button>
-                            </span>
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Product Name"
-                              [(ngModel)]="progreso"
-                            >
-                            <span class="input-group-btn">
-                              <button class="btn btn-primary" type="button" (click)="cambiarValor(10)">
-                                <i data-feather="plus"></i>
-                              </button>
-                            </span>
-                          </div>
+                          <app-incrementador
+                            (valor)="progreso1 = $event"
+                            [valor]="progreso1"
+                            [btnClass]="'btn-primary'"
+                          ></app-incrementador>
                         </div>
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="card">
                         <div class="card-body">
-                          2
+                          <app-incrementador
+                            (valor)="progreso2 = $event"
+                            [valor]="progreso2"
+                            [btnClass]="'btn-secondary'"
+                          ></app-incrementador>
                         </div>
                       </div>
                     </div>
@@ -74,9 +82,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </main>

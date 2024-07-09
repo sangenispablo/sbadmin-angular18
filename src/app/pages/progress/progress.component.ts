@@ -1,25 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import * as feather from 'feather-icons';
 
 @Component({
   selector: 'app-progress',
   templateUrl: './progress.component.html',
   styles: ``,
 })
-export class ProgressComponent {
-  @Input()
-  progreso: number = 50;
+export class ProgressComponent implements AfterViewInit {
+  progreso1: number = 10;
+  progreso2: number = 50;
 
-  get getPorcentaje() {
-    return `${this.progreso}%`;
+  get getProgreso1() {
+    return `${this.progreso1}%`;
   }
 
-  cambiarValor(valor: number) {
-    if (this.progreso >= 100 && valor > 0) {
-      return (this.progreso = 100);
-    }
-    if (this.progreso <= 0 && valor < 0) {
-      return (this.progreso = 0);
-    }
-    return this.progreso = this.progreso + valor;
+  get getProgreso2() {
+    return `${this.progreso2}%`;
+  }
+
+  ngAfterViewInit(): void {
+    feather.replace();
   }
 }

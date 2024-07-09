@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import * as feather from 'feather-icons';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: ``
+  styles: ``,
 })
-export class HeaderComponent {
-
+export class HeaderComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    feather.replace();
+  }
 }
