@@ -5,7 +5,6 @@
  */
 
 var customInitFunctions = () => {
-
   // Enable tooltips globally
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -61,35 +60,6 @@ var customInitFunctions = () => {
       }
     });
   }
-
-  // Add active state to sidbar nav links
-  let activatedPath = window.location.pathname.match(/([\w-]+\.html)/, "$1");
-
-  if (activatedPath) {
-    activatedPath = activatedPath[0];
-  } else {
-    activatedPath = "index.html";
-  }
-
-  const targetAnchors = document.body.querySelectorAll(
-    '[href="' + activatedPath + '"].nav-link'
-  );
-
-  targetAnchors.forEach((targetAnchor) => {
-    let parentNode = targetAnchor.parentNode;
-    while (parentNode !== null && parentNode !== document.documentElement) {
-      if (parentNode.classList.contains("collapse")) {
-        parentNode.classList.add("show");
-        const parentNavLink = document.body.querySelector(
-          '[data-bs-target="#' + parentNode.id + '"]'
-        );
-        parentNavLink.classList.remove("collapsed");
-        parentNavLink.classList.add("active");
-      }
-      parentNode = parentNode.parentNode;
-    }
-    targetAnchor.classList.add("active");
-  });
 };
 
 // window.addEventListener("DOMContentLoaded", (event) => {

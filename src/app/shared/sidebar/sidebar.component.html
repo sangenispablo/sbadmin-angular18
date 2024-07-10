@@ -37,6 +37,8 @@
                   *ngFor="let submenu of menu.submenu"
                   class="nav-link"
                   [routerLink]="submenu.url"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
                   >{{ submenu.title }}</a
                 >
               </nav>
